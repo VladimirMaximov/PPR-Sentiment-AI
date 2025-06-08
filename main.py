@@ -1,6 +1,7 @@
 import streamlit as st
 from menu import menu
 from pages.connection_page import connection_page
+from pages.parsing_page import parsing_page
 
 def main():
     st.set_page_config(
