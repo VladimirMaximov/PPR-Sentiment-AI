@@ -1,5 +1,7 @@
+import streamlit as st
+
 def main():
-    pass
+    st.write("Hello world")
 
 if __name__ == "__main__":
     main()
