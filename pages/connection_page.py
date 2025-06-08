@@ -5,7 +5,6 @@ def connection_page():
     st.title("Соединение с базой данных")
     st.markdown("### Информация о соединении")
 
-    # Две колонки: слева поля ввода, справа статус
     col1, col2 = st.columns([2, 1])
 
     with col1:
@@ -30,7 +29,6 @@ def connection_page():
             st.session_state.error = "Заглушка: подключение не выполнено"
 
     with col2:
-        # Блок статуса
         st.markdown("#### Статус подключения")
         connected = st.session_state.get("connected", False)
         if connected:
@@ -38,16 +36,13 @@ def connection_page():
         else:
             st.error("Не подключено")
 
-        # Вывод введённых значений
         st.text(f"PG_HOST: {st.session_state.get('conn_info', ['', '', '', ''])[0] if connected else host or 'None'}")
         st.text(f"PG_PORT: {st.session_state.get('conn_info', ['', '', '', ''])[1] if connected else port or 'None'}")
         st.text(f"PG_USER: {st.session_state.get('conn_info', ['', '', '', ''])[2] if connected else user or 'None'}")
         st.text(f"PG_PASSWORD: {st.session_state.get('conn_info', ['', '', '', ''])[3] if connected else ('*' * len(password) if password else 'None')}")
 
-    # Информация о базе данных (заглушка)
     st.markdown("### Информация о базе данных")
     st.info("Здесь позже будет отображаться информация о структуре и содержимом БД")
-    # Можно зарезервировать место:
     st.empty()
 
 menu()
